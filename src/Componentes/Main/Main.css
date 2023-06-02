@@ -1,0 +1,120 @@
+.contenedorZapas {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "z1 z2 z3 z4"
+      "z5 z6 z7 z8";
+      margin:10px;
+      margin-top: 20px;
+      margin-left:90px;
+  }
+  
+  .z1 { grid-area: z1; }
+  
+  .z2 { grid-area: z2; }
+  
+  .z3 { grid-area: z3; }
+  
+  .z4 { grid-area: z4; }
+  
+  .z5 { grid-area: z5; }
+  
+  .z6 { grid-area: z6; }
+  
+  .z7 { grid-area: z7; }
+  
+  .z8 { grid-area: z8; }
+  
+
+.portada{
+  margin-bottom: 50px;
+}
+  /*Card*/
+  .boton{
+  
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+
+    
+}
+
+.cards{
+  background-color: #777777 !important;
+}
+.contenidoCard{
+  box-shadow: inset -2px 1px 25px -12px rgba(0,0,0,0.75);
+
+
+}
+
+
+.nombreBoton{
+  color:black !important;
+
+}
+.nombreBoton:hover{
+  color:white !important;
+  
+  
+}
+
+.nombreBoton:hover .boton{
+  background-color: #e05c26 !important;
+}
+/*Card*/
+
+
+
+/*** ESTILOS BOTÓN SLIDE LEFT ***/
+.ov-btn-slide-left {
+  background: #fcfcfc;
+  color: #000000; /* color de fuente */
+  border: 2px solid #e05c26; /* tamaño y color de borde */
+  padding: 16px 20px;
+  border-radius: 3px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  right: 500px;
+  bottom: 200px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.ov-btn-slide-left:hover {
+  color: #fff; /* color de fuente hover */
+  border: 2px solid #e05c26;
+}
+.ov-btn-slide-left::after {
+  content: "";
+  background: #e05c26;
+  /* color de fondo hover */
+    position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+
+}
+.ov-btn-slide-left:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+
+}
+
+h2{
+  margin-top: 20px;
+  font-size: 3vw;
+}
