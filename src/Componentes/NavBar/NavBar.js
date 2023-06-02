@@ -2,7 +2,7 @@ import React from "react";
 import "./NavBar.css"
 import Logo from "../img/logo.png"
 import Shop from '@mui/icons-material/ShoppingCart';
-
+import CardWidget from "./CartWidget";
 
 const Navbar = () =>{
     return(
@@ -20,7 +20,7 @@ const Navbar = () =>{
 </ul>
 </div>
 <div>
-<a className="carrito" href="#"><Shop color="primary" />2</a>
+<CardWidget />
 </div>
 
 </nav>
