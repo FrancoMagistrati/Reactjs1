@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "name": "Nike Zoom Freak 4 \"NRG Lightning\"",
+      "img": " ../assets/img/nike1.jpg",
+      "price": 78990,
+      "brand": "nike"
+    },
+    {
+      "id": 2,
+      "name": "Adidas DON issue 3 \"Christmas\"",
+      "img": "../assets/img/adidas.png",
+      "price": 69000,
+      "brand": "adidas"
+    },
+    {
+      "id": 3,
+      "name": "Under Armour Spawn 3 \"Electric Blue\"",
+      "img": "../assets/img/underarmor.jpg",
+      "price": 59000,
+      "brand": "under"
+    },
+    {
+      "id": 4,
+      "name": "Puma RS Dreamer J Cole \"Lime Green\"",
+      "img": "../assets/img/puma.jpg",
+      "price": 58000,
+      "brand": "puma"
+    },
+    {
+      "id": 5,
+      "name": "Nike Kyrie Flytrap 6 \"Black Ice\"",
+      "img": "../assets/img/nike3.jpg",
+      "price": 67900,
+      "brand": "nike"
+    }
+    
+  ]
+    

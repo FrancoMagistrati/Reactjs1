@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import Nike from "../img/nikelogo.jpg"
-import Adidas from "../img/adidaslogo.jpg"
-import Puma from "../img/pumalogo.png"
-import Under from "../img/underlogo.jpg"
-import "./Main.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Filtro.css"
+/*import Nike from "../assets/img/nikelogo.jpg"
+import Adidas from "../assets/img/adidaslogo.jpg"
+import Puma from "../assets/img/pumalogo.png"
+import Under from "../assets/img/underlogo.jpg"
 
 
 import { styled } from '@mui/material/styles';
@@ -98,7 +99,8 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 export default function ButtonBases() {
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
+  
+     <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
       {images.map((image) => (
         <ImageButton
           focusRipple
@@ -115,9 +117,32 @@ export default function ButtonBases() {
         </ImageButton>
       ))}
     </Box>
+
+   
     
 
   );
 }
 
 
+*/
+
+const Filtro = () => {
+  return(
+    <div>
+      <Link  to="/category/nike">
+      <img className="filtroimagen" src="../assets/img/nikelogo.jpg" alt="nike" />
+      </Link>
+      <Link  to="/category/adidas">
+      <img className="filtroimagen" src="../assets/img/adidaslogo.jpg" alt="adidas" />
+      </Link>
+      <Link  to="/category/under">
+      <img className="filtroimagen" src="../assets/img/underlogo.jpg" alt="under" />
+      </Link>
+      <Link  to="/category/puma">
+      <img className="filtroimagen" src="../assets/img/pumalogo.png" alt="puma" />
+      </Link>
+    </div>
+  )
+}
+export default Filtro

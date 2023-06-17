@@ -1,0 +1,10 @@
+.filtroimagen{
+    width: 10vw;
+    opacity: .5;
+    transition: .5s;
+}
+
+.filtroimagen:hover{
+    opacity: 1;
+    transition: .5s;
+}

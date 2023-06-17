@@ -1,21 +1,31 @@
 import React from "react";
 import "./NavBar.css"
-import Logo from "../img/logo.png"
+import Logo from "../../assets/img/logo.png"
 import Shop from '@mui/icons-material/ShoppingCart';
 import CardWidget from "./CartWidget";
-
+import { Link } from "react-router-dom";
 const Navbar = () =>{
     return(
 
 <nav >
 <div>
+<Link to="/">
+
 <a href="#"><img src={Logo} className="logo"></img></a>
+</Link>
+
 </div>
 <div className="menu menu-3">
 <ul>
-  <li><a href="#">Menu</a></li>
-  <li><a href="#">Categorias</a></li>
-  <li><a href="#">Contacto</a></li>
+<Link className="li" to="/">
+Home
+</Link>
+<Link className="li" >
+Contacto
+</Link>
+
+
+
 
 </ul>
 </div>

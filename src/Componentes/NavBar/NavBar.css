@@ -50,7 +50,8 @@ a{
 }
 
 .menu{
-
+  display: flex;
+  justify-content: space-around;
     font-family: 'Open Sans Condensed', sans-serif;
   }
 
@@ -89,10 +90,23 @@ a{
     transform-origin: 0 50%;
   }
   .menu a:hover::before{
-    transform: scale3d(9,1,1);
+    transform: scale3d(2,1,1);
   }
 
   .menu-3 a::before{
     transform-origin: 0% 50%;
     background: #F06292;
+  }
+
+  .li{
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .lista ul{
+    display: none;
+  }
+
+  .lista:hover ul{
+    display: inline-block;
   }
