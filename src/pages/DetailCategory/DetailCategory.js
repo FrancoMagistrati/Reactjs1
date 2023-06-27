@@ -26,7 +26,7 @@ const Detail = () => {
     getProducts();
   }, [id]);
 
-  return (
+  return (  
     <div>
                      <header>
           <Header />

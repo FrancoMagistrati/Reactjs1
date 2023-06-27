@@ -18,7 +18,7 @@ const ListProduct = () => {
           <Link to={`detail/${product.id}`}>
           <CardProduct product={product} />
           </Link>
-       
+
         </div>
       ))}
     </div>
