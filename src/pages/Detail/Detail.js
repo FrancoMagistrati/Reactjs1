@@ -27,17 +27,10 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div>
-                     <header>
-          <Header />
-        </header>
-    <div style={{ display: "flex", justifyContent: "center", margin: 20 }}>
-      {product.id ? <CardProduct product={product} /> : null}
-    </div>
-    <footer>
-        <Footer />
-        </footer>
-    
+    <div>       
+        <div style={{ display: "flex", justifyContent: "center", margin: 20 }}>
+          {product.id ? <CardProduct product={product} /> : null}
+        </div>
     </div>
 
   );
