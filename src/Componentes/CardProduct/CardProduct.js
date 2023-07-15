@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -6,26 +6,25 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 
-const CardProduct = ({ product, buttonText  }) => {
+const CardProduct = ({ product  }) => {
 
-  const { name, brand, price, img, } = product;
+  
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} >
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image={img}
-          alt={name}
+          image={product.img}
+          alt={product.name}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+            {product.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            ${price}
+            ${product.price}
           </Typography>
-          <button>{buttonText}</button>
         </CardContent>
       </CardActionArea>
     </Card>

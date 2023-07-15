@@ -26,7 +26,7 @@ img{
 }
 
 a{
-    width: 10%;
+  
   text-decoration:  none;
 }
 
@@ -65,7 +65,7 @@ a{
     text-align: center;
   }
   .menu li{
-    display: inline-block;
+   
     margin: 0 15px;
   }
   .menu a{
@@ -105,8 +105,4 @@ a{
 
   .lista ul{
     display: none;
-  }
-
-  .lista:hover ul{
-    display: inline-block;
   }

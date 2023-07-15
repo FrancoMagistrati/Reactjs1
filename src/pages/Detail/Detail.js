@@ -1,36 +1,56 @@
-import { useState, useEffect } from "react";
-
-
-import CardProduct from "../../Componentes/CardProduct/CardProduct";
-
+import { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import Header from "../../Componentes/Header/Header"
-import Footer from "../../Componentes/Footer/Footer"
+import { collection, query, documentId, getDocs, where} from "firebase/firestore";
+import { db } from "../../Componentes/firebase/firebaseConfig"
+import CardProduct from "../../Componentes/CardProduct/CardProduct";
+import { useCart } from "../../Context/CartContext/CartContext"
+import { ItemCount } from "../../Componentes/ItemCount/ItemCount";
+
 
 
 const Detail = () => {
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
+  console.log(product)
+  const { id } = useParams();
 
-  let { id } = useParams();
+const { addToCart } = useCart()
 
-  console.log("productos",product);
+const add = (cantidad) => {
+  addToCart(product, cantidad);
+};
+
+
+
 
   useEffect(() => {
-    const getProducts = () => {
-      fetch(`/products.json`)
-        .then((response) => response.json())
-        .then((producto) =>
-          setProduct(producto.find((el) => el.id === parseInt(id)))
-        );
-    };
-    getProducts();
-  }, [id]);
+    const getShoes = async () => {
+      const q = query(collection(db, "shoes") , where(documentId(), "==", id));
+      const docs = []
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({...doc.data(), id:doc.id})
+       
+      });
+      setProduct(docs)
+    }
+    getShoes()
+  }, [id])
 
   return (
     <div>       
-        <div style={{ display: "flex", justifyContent: "center", margin: 20 }}>
-          {product.id ? <CardProduct product={product} /> : null}
-        </div>
+      {product.map((data)=> {
+        return  (
+          <div key={data.id}>
+          <CardProduct product={data} />
+          <ItemCount onAdd={add} initial={1} />
+
+          
+         
+       </div>
+        )
+         
+      })} 
+   
     </div>
 
   );
