@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 
-const CardProduct = ({ product  }) => {
+const CardProduct = ({ product, displayProductName = true  }) => {
 
   
   return (
@@ -14,17 +14,21 @@ const CardProduct = ({ product  }) => {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="250"
           image={product.img}
           alt={product.name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            ${product.price}
-          </Typography>
+        {displayProductName && (
+            <Typography gutterBottom variant="h5" component="div">
+              {product.name}
+            </Typography>
+          )}
+          {displayProductName && (
+            <Typography gutterBottom variant="h5" component="div">
+              ${product.price}
+            </Typography>
+          )}
         </CardContent>
       </CardActionArea>
     </Card>

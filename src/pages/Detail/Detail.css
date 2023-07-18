@@ -1,3 +1,58 @@
-.Cards{
-display: flex;
+.contenedor {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "a1 a2 a2";
+        height: 60%;
+      border: 2px solid black;
+      margin: 5px;
+  }
+  
+  .a1 { grid-area: a1; margin-left: 20px; }
+  
+  .a2 { grid-area: a2; display: flex; flex-direction: column;}
+
+
+
+.a1 img{
+    width: 80%;
 }
+
+.detalle {
+    margin:60px;
+    font-size: 2.5vw;
+  }
+
+  .detalle2 {
+    margin-top: 60px;
+    font-size: 2.5vw;
+  }
+
+  .Talle{
+    font-size:1.4vw;
+
+ text-align: center;
+  }
+
+  .selected {
+    background-color: #de7f03;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .tallebutton{
+
+    margin: 10px;
+    background-color: #ad6201;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .description{
+    font-size:1.5vw;
+  }

@@ -8,3 +8,8 @@
     opacity: 1;
     transition: .5s;
 }
+
+.filtroMarca{
+  
+    display: flex;
+}

@@ -4,15 +4,15 @@ import "./Filtro.css"
 
 const Filtro = () => {
   return(
-    <div>
+    <div className="filtroMarca">
       <Link  to="/category/nike">
-      <img className="filtroimagen" src="/assets/img/nikelogo.jpg" alt="nike" />
+      <img className="filtroimagen" src="/assets/img/nikelogo.png" alt="nike" />
       </Link>
       <Link  to="/category/adidas">
-      <img className="filtroimagen" src="/assets/img/adidaslogo.jpg" alt="adidas" />
+      <img className="filtroimagen" src="/assets/img/adidaslogo.png" alt="adidas" />
       </Link>
       <Link  to="/category/under">
-      <img className="filtroimagen" src="/assets/img/underlogo.jpg" alt="under" />
+      <img className="filtroimagen" src="/assets/img/underarmorlogo.png" alt="under" />
       </Link>
       <Link  to="/category/puma">
       <img className="filtroimagen" src="/assets/img/pumalogo.png" alt="puma" />

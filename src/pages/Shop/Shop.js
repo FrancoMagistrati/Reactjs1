@@ -1,82 +1,130 @@
 import { useState } from "react";
-import "./Shop.css"
-import { collection, addDoc } from "firebase/firestore";
+import "./Shop.css";  
+import { collection, addDoc} from "firebase/firestore";
+import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import { useCart } from "../../Context/CartContext/CartContext"
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { useCartContext } from '../../Context/CartContext/CartContext';
+import { db } from "../../Componentes/firebase/firebaseConfig"
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
-    name: "",
-    lastname: "",
-    email: "",
-}
+  name: "",
+  lastname: "",
+  email: "",
+};
 
+const StyledTextField = styled(TextField)({
+  width: '20%',
+  marginBottom: '10px',
+  border: "1px solid #ccc"
+});
 
 const Shop = () => {
+  const [values, setValues] = useState(initialState);
+  const [purcharseID , setPurchaseID] = useState(null)
+  const { cart, CartEmpty, removeItem, Total, CartAfterShop } = useCartContext();
+  const navigate = useNavigate();
+  const [formError, setFormError] = useState(false);
 
-const { cart } = useCart();
-console.log("carrito",cart)
-const [values, setValues] = useState(initialState);
-
-const handleOnChange = (e) => {
+  const handleOnChange = (e) => {
     const { value, name } = e.target;
-    setValues({ ...values, [name]: value })
-}
+    setValues({ ...values, [name]: value });
+  };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
+    // Verificar si los campos del formulario están completos
+    if (values.name === "" || values.lastname === "" || values.email === "") {
+      setFormError(true);
+      return;
+    }
 
-const onSubmit = (e) => {
-    e.preventDefault(); 
-    console.log(values)
-    setValues(initialState)
-}
+    const docRef = await addDoc(collection(db, "purcharseCollection"), {
+      name: values.name,
+      lastname: values.lastname,
+      email: values.email,
+      cart: cart,
+      total: Total()
+    });
 
+    setPurchaseID(docRef.id);
+    setValues(initialState);
+    navigate(`/message/${docRef.id}`);
+    CartAfterShop()
+  };
 
-
-    return(
-      
-        <div >
-            
-                 
-      {cart.caarito.map((product, id) => (
-        <div key={id}>
-         <Card sx={{ maxWidth: 345 }} >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={product.img}
-          alt={product.name}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.name}
-          </Typography>
-
-
-          <Typography variant="body2" color="text.secondary">
-             Cantidad: {product.qty}
-          </Typography>
-
-        </CardContent>
-      </CardActionArea>
-    </Card>
+  if (cart.length === 0) {
+    return (
+      <div>
+        <h1>Tu carrito está vacío</h1>
+        <p>Agrega productos a tu carrito para continuar</p>
+      </div>
+    );
+  } else {
+    return (
+      <>
+        <div className="container">
+          {cart.map((product, id) => (
+            <div key={id} className="listaItems">
+              <div className="imgItem ">
+                <img src={product.img} alt={product.name} />
+              </div>
+              <div className="descriptionItem">
+                <span>{product.name}</span>
+              </div>
+              <div className="priceItem">
+                <span>${product.price} </span>
+              </div>
+              <div className="qty">
+                <span>Cantidad: {product.qty}</span>
+              </div>
+              <div className="eliminar">
+                <button onClick={() => removeItem(product.id)}>X</button>
+              </div>
+            </div>
+          ))}
+          <div className="total">
+            <span>Total:${Total()}</span>
+          </div>
+          <div className="botones">
+            <button className="VaciarButton" onClick={CartEmpty}>
+              Vaciar
+            </button>
+          </div>
         </div>
-      ))}
-            <form className="formulario" onSubmit={onSubmit}>
-            <TextField placeholder="Name" name="name" value={values.name} onChange={handleOnChange}/> 
-            <TextField placeholder="lastname" name="lastname" value={values.lastname} onChange={handleOnChange}/>   
-            <TextField placeholder="Email" name="email" value={values.email} onChange={handleOnChange}/>   
-            <button>Enviar</button>  
-            
-            </form>
-            
-        </div>
-    )
-}
 
-export default Shop
+        <div>
+          <h2>Completa tus datos para finalizar la compra</h2>
+          {formError && <p>Por favor, completa todos los campos del formulario.</p>}
+          <form className="formulario" onSubmit={onSubmit}>
+            <StyledTextField
+              placeholder="Name"
+              name="name"
+              value={values.name}
+              onChange={handleOnChange}
+              className={values.name === "" && formError ? "error" : ""}
+            />
+            <StyledTextField
+              placeholder="lastname"
+              name="lastname"
+              value={values.lastname}
+              onChange={handleOnChange}
+              className={values.lastname === "" && formError ? "error" : ""}
+            />
+            <StyledTextField
+              placeholder="Email"
+              name="email"
+              value={values.email}
+              onChange={handleOnChange}
+              className={values.email === "" && formError ? "error" : ""}
+            />
+            <button type="submit">Comprar</button>
+          </form>
+        </div>
+      </>
+    );
+  }
+};
+
+export default Shop;

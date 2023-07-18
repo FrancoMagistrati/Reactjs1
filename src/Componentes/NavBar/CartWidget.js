@@ -4,7 +4,7 @@ import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 
 const CardWidget = () => {
   return (
-    <div style={{ display: "flex", alignItems: "center", width: "40px" }}>
+    <div style={{ display: "flex", alignItems: "center", width: "40px", textDecoration:"none"}}>
       <LocalGroceryStoreIcon sx={{ color: "black" }} />
     </div>
   );

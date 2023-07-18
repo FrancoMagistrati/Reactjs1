@@ -1,0 +1,64 @@
+.buttonCount{
+margin:40px;
+display: flex;
+justify-content: center;
+}
+
+.buttonCount button{
+    margin-left: 20px;
+    width: 2vw;
+}
+
+
+.buttonAgregar{
+    width: auto !important;
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 1vw;
+}
+
+.buttonAgregar:hover {
+    background-color: #45a049; 
+  }
+.buttonCount span{
+    background-color: rgba(174, 174, 174, 0.349);
+    font-size: 1.3vw;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border: none; 
+    border-radius: 5px; 
+    
+}
+
+.buttonRestar{
+    background-color: #e2120b;
+    color: white;
+
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 1vw;
+}
+
+.buttonRestar:hover{
+    background-color: #be1510;
+}
+
+.buttonSumar{
+    background-color: #2cdf32;
+    color: white;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 1vw;
+}
+
+
+.buttonSumar:hover{
+    background-color: #29c22e;
+}

@@ -3,11 +3,14 @@
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
 
+
   }
   
   .cardsProduct {
     width: 100% !important;
     text-align: center; 
+    margin: 50px;
+
   }
   
   .cardsProduct a {
